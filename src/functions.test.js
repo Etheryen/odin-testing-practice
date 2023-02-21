@@ -53,6 +53,10 @@ it('ciphers respecting punctuation', () => {
   ).toBe(`??fghgpf; vjg, "gcuv ycnn" 'qh' vjg... ecuvng!!!`);
 });
 
+it('ciphers the other way', () => {
+  expect(caesarCipher('abc', -1)).toBe('zab');
+});
+
 it('analyzes an array', () => {
   const object = analyzeArray([1, 8, 3, 4, 2, 6]);
 

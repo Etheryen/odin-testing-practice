@@ -25,7 +25,7 @@ function isUpperCase(string) {
   return string === string.toUpperCase();
 }
 
-function caesarCipher(string, shiftFactor) {
+function caesarCipher(string, shiftFactor = 1) {
   const alpha = Array.from(Array(26)).map((e, i) => i + 65);
   const ALPHABET = alpha.map((x) => String.fromCharCode(x));
 
@@ -33,8 +33,9 @@ function caesarCipher(string, shiftFactor) {
 
   for (const char of string) {
     if (ALPHABET.includes(char.toUpperCase())) {
-      let newChar =
-        ALPHABET[(ALPHABET.indexOf(char.toUpperCase()) + shiftFactor) % 26];
+      let newChar = ALPHABET.at(
+        (ALPHABET.indexOf(char.toUpperCase()) + shiftFactor) % 26
+      );
       result += isUpperCase(char) ? newChar : newChar.toLowerCase();
     } else {
       result += char;
